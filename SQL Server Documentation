@@ -1,0 +1,12 @@
+TABLES
+	visitors
+		Name varchar(255)
+		ContactInfo varchar(255)
+
+	listings
+		BusinessName varchar(255)
+		BusinessLocation varchar(255)
+		BusinessType varchar(255)
+		BusinessInfo varchar(1023)
+		OwnerHash varchar(255)
+		IsApproved number(1)
