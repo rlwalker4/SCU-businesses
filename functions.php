@@ -53,8 +53,10 @@ function getListings($admin)
 function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree){
 	$conn = connect();
 	$hashstr = $grad_year . $user_name . $degree;
+	$hashstr = hash('sha256', $hashstr);
 	echo $hashstr;
-	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);"
+	echo '<br>';
+	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
 	echo $str;
 	//$stid = oci_parse($conn, 'INSERT INTO listings VALUES ('${name}'
 	
