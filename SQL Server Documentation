@@ -9,4 +9,4 @@ TABLES
 		BusinessType varchar(255)
 		BusinessInfo varchar(1023)
 		OwnerHash varchar(255)
-		IsApproved number(1)
+		IsApproved integer(1)
