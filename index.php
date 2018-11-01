@@ -9,13 +9,12 @@
 	include 'functions.php';
 	$i = 0;
 	foreach ($_POST as $var){
-		if($var != '')
+		if($var != "")
 			$i++;
 	}
 	if($i == 7){
-		addListing($_POST["Name"], $_POST["Location"], $_POST["Type"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
+		addListing($_POST["Name"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
 	}
-
 ?>
 
 <div class="w3-flat-pomegranate">
@@ -27,7 +26,8 @@
 	
 
 	<?php
-	getListings(1);
+		//getListings(1, $_POST["LocationF"], $_POST[TypeF]);
+		getListings(1);
 	?>
 
 
@@ -35,8 +35,8 @@
         <div class="w3-container w3-light-grey w3-justify">
             <h3>Filter By: </h3>
                 <form action="index.php" method = "post">
-                Location: <input type="text" name="Location" value=""><br>
-                Business Type: <input type="text" name="Type" value=""><br>
+                Location: <input type="text" name="LocationF" value=""><br>
+                Business Type: <input type="text" name="TypeF" value=""><br>
                 <input type="submit" value="Filter">
                 </form>
         </div>
@@ -45,8 +45,8 @@
             <h3>Add New Business: </h3>
                 <form action="index.php" method = "post">
                 Name: <input type="text" name="Name" value=""><br>
-                Location: <input type="text" name="Location" value=""><br>
-                Type: <input type="text" name="Type" value=""><br>
+                Location: <input type="text" name="LocationA" value=""><br>
+                Type: <input type="text" name="TypeA" value=""><br>
                 Info: <input type="text" name="Info" value=""><br>
                 Grad Year: <input type="text" name="GradYear" value=""><br>
                 Username: <input type="text" name="Username" value=""><br>
