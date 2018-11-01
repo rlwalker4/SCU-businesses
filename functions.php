@@ -14,15 +14,23 @@ if($conn) {
 	}
 }
 
-function getListings($admin)
+function getListings($admin, $filterLocation, $filterType)
 {
 	$conn = connect();
 	if($admin)
 	{
-		$stid = oci_parse($conn, 'SELECT * FROM listings');
+		$stid = 'SELECT * FROM listings';
 	} else {
-		$stid = oci_parse($conn, 'SELECT * FROM listings WHERE IsApproved=1');
+		$stid = 'SELECT * FROM listings WHERE IsApproved=1';
 	}
+
+	if($filterLocation != ""){
+		$stid = $stid . ", BusinessLocation='${filterLocation}'";
+	}
+	if($filterType != ""){
+		$stid = $stid . ", BusinessType= '${filterLocation}'";
+	}
+	$stid = oci_parse($conn, $stid)
 	if(!$stid){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -142,6 +150,24 @@ function removeListingAdmin($name){
 	oci_free_statement($conn);
 	oci_close($conn);
 	
+}
+
+function approveListing($name){
+	
+	$conn = connect();
+	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'"
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	oci_free_statement($conn);
+	oci_close($conn);
 }
 ?>
 
