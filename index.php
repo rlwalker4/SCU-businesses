@@ -36,6 +36,16 @@
         <br>
         <div class="w3-container w3-light-grey w3-justify">
             <h3>Add New Business: </h3>
+                <form action="index.php" method = "addListing">
+                Name: <input type="text" name="Name:" value=""><br>
+                Location: <input type="text" name="Location" value=""><br>
+                Type: <input type="text" name="Type" value=""><br>
+                Info: <input type="text" name="Info" value=""><br>
+                Grad_year: <input type="text" name="Grad Year" value=""><br>
+                User_name: <input type="text" name="Username" value=""><br>
+                Degree: <input type="text" name ="Degree" value = ""><br>
+                <input type="submit" value="Submit">
+                </form>
         </div>
 
     </div>
