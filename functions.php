@@ -27,16 +27,12 @@ function getListings($admin)
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
 	$response = oci_execute($stid);
-	//TODO check $response
 	if(!$response){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	$loop = 'loop';
-	echo $loop;
 	print "<table border='1'>\n";
 	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-		echo $loop;
 		print "<tr>\n";
 		foreach ($row as $item) {
 			print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
@@ -58,10 +54,17 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	echo '<br>';
 	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
 	echo $str;
-	//$stid = oci_parse($conn, 'INSERT INTO listings VALUES ('${name}'
-	
-	
-	//oci_free_statement($stid);
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	oci_free_statement($stid);
 	oci_close($conn);
 }
 ?>
