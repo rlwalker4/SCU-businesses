@@ -18,7 +18,14 @@
         getListingsAdmin(1);
     ?>
 </div>
-
+<script>
+function deleteListing(name){
+    <?php
+    include 'functions.php';
+    removeListingAdmin(name);
+    ?>
+}
+</script>
 <br>
 
 </HTML>

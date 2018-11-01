@@ -26,10 +26,22 @@
 	
 
 	<?php
-		//getListings(1, $_POST["LocationF"], $_POST[TypeF]);
-		getListings(1);
+		$i = 0;
+		foreach ($_POST as $key => $var){
+			if($var != "")
+				$i++;
+		}
+		if($i == 2)
+			getListings(1, $_POST["LocationF"], $_POST["TypeF"]);
+		else if($i == 1 && $key == "TypeF" && $_POST["TypeF"] != "")
+			getListings(1, "", $_POST["TypeF"]);
+		else if($i == 1)
+			getListings(1, $_POST["LocationF"], "");
+		else
+			getListings(1, "", "");
+		
+		//getListings(1);
 	?>
-
 
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
