@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 <HTML>
-<a href="AlumniOffice.php" class="w3-button w3-black">Alumni Office Login</a>
 <HEAD>
 <TITLE>SCU Businesses</TITLE>
 </HEAD>
 
 <div class="w3-flat-pomegranate">
+<div Align =left> <a href="AlumniOffice.php" class="w3-button w3-black">Alumni Office Login</a></div>
 <H1 ALIGN=CENTER>SCU Alumni Businesses</H1>
+
+
 </div>
 
 </BODY>
