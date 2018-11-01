@@ -25,6 +25,7 @@
 </div>
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
+
     <table class="w3-twothird w3-table-all w3-card-2">
     <tr>
     <th>Name</th>

@@ -70,13 +70,13 @@ function getListingsAdmin($admin)
         trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
     }
     print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
-    print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>Delete</th>";
+    print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th><th>Delete</th>";
     while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         print "<tr>\n";
         foreach ($row as $item) {
             print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
             }
-        print "<td> <i class="fas fa-trash"></i></td>\n"
+        print "<td> <i class='fas fa-trash'></i></td>\n";
         print "</tr>\n";
     }
     print "</table>\n";

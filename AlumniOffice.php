@@ -14,17 +14,11 @@
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
+		include 'functions.php';
         getListingsAdmin(1);
     ?>
 </div>
 
 <br>
-
-<?php
-    include 'functions.php';
-    echo "This is a test of PHP.";
-    getListings(1);
-    addListing('fakename', 'fakeloc', 'faketype', 'fakeinfo', 'fakeusername', 'fakeyear', 'fakedegree');
-    ?>
 
 </HTML>
