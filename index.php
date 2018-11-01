@@ -6,8 +6,8 @@
 </HEAD>
 
 <?php
-	foreach ($post as $var)
-		 echo $_POST["Name"];
+	foreach ($_POST as $var)
+		 echo $var;
 ?>
 
 <div class="w3-flat-pomegranate">
