@@ -90,10 +90,7 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	$conn = connect();
 	$hashstr = $grad_year . $user_name . $degree;
 	$hashstr = hash('sha256', $hashstr);
-	echo $hashstr;
-	echo '<br>';
-	$str = "INSERT INTO listings VALUES('c', 'b', 'a', 'a', 'ajksdklajsbd', 0);";
-	//$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
+	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0)";
 	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
@@ -107,7 +104,7 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
 	
-	$str = "COMMIT;";
+	$str = "COMMIT";
 	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
