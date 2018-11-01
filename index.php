@@ -18,8 +18,7 @@ Find SCU alumni-owned businesses. If you are an SCU Alum, please add your busine
   <LI><A HREF="http://www.engr.scu.edu">SCU School of Engineering</A>
   <LI><A HREF="http://www.dc.engr.scu.edu">SCU Engineering Design Center</A>
   <LI><A HREF="http://students.engr.scu.edu">Engineering Student Webpages</A>
-  <LI><A HREF="AlumniOffice.php">Test page</A>
-<LI><A HREF="test.php">Alumni Office Use Only</A>
+  <LI><A HREF="AlumniOffice.php">Alumni Office Use Only</A>
 </UL>
 
 <HR COLOR="#990033">
