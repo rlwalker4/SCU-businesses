@@ -57,7 +57,7 @@
 <br>
 
 <?php
-<<<<<<< HEAD
+
 	include 'functions.php';
 	echo "This is a test of PHP.";
 	getListings(1);
@@ -65,12 +65,5 @@
 	getListings(1);
 	
 ?>
-=======
-    include 'functions.php';
-    echo "This is a test of PHP.";
-    getListings(1);
-    addListing('fakename', 'fakeloc', 'faketype', 'fakeinfo', 'fakeusername', 'fakeyear', 'fakedegree');
-    ?>
->>>>>>> 717cbdb69480b1ba9a729136b8d64728d557cfde
 
 </HTML>
