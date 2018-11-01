@@ -10,7 +10,6 @@
 <H1 ALIGN=CENTER>SCU Alumni Businesses</H1>
 </div>
 
-
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <table class="w3-twothird w3-table-all w3-card-2">
     <tr>
@@ -32,6 +31,11 @@
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
             <h3>Filter By: </h3>
+                <form action="index.php" method = "addListing">
+                Location: <input type="text" name="Location" value=""><br>
+                Business Type: <input type="text" name="Type" value=""><br>
+                <input type="submit" value="Filter">
+                </form>
         </div>
         <br>
         <div class="w3-container w3-light-grey w3-justify">
@@ -47,11 +51,8 @@
                 <input type="submit" value="Submit">
                 </form>
         </div>
-
     </div>
 </div>
-
-
 
 <br>
 
