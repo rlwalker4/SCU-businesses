@@ -57,10 +57,13 @@
 <br>
 
 <?php
-    include 'functions.php';
-    echo "This is a test of PHP.";
-    getListings(1);
-    addListing('fakename', 'fakeloc', 'faketype', 'fakeinfo', 'fakeusername', 'fakeyear', 'fakedegree');
-    ?>
+
+	include 'functions.php';
+	echo "This is a test of PHP.";
+	getListings(1);
+	//addListing('fakename', 'fakeloc', 'faketype', 'fakeinfo', 'fakeusername', 'fakeyear', 'fakedegree');
+	getListings(1);
+	
+?>
 
 </HTML>
