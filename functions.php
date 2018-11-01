@@ -4,7 +4,6 @@ function connect()
 {
 $conn = oci_connect('PPAULSON', 'coen174oracle', '//dbserver.engr.scu.edu/db11g');
 if($conn) {
-	print "<br> connection successful <br>";
 	return $conn;
 } else {
 	$e = oci_error;
