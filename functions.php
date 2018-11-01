@@ -82,7 +82,6 @@ function getListingsAdmin($admin)
             }
             print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
             }
-        print "<td> <button name='buttonName' value= $deleteNameValue> <i class='fas fa-trash'></i></button></td>\n";
         print "<td> <button name='buttonName".i."' value=". $deletNameValue." onClick ='deleteListing(buttonName".i.")' > <i class='fas fa-trash'></i></button></td>\n";
         print "</tr>\n";
         i++;
