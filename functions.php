@@ -67,5 +67,28 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	oci_free_statement($stid);
 	oci_close($conn);
 }
+
+function removeListing(){
+
+}
+
+function removeListingAdmin($name){
+	
+	$conn = connect();
+	$str = "DELETE FROM listings WHERE Businessname='${name}'";
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	oci_free_statement($conn);
+	oci_close($conn);
+	
+}
 ?>
 
