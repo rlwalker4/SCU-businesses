@@ -14,7 +14,6 @@
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
-        getListings(1);
     ?>
 </div>
 

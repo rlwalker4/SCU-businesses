@@ -48,7 +48,6 @@ function getListings($admin)
 	oci_close($conn);
 }
 
-function getListings($admin)
 {
     $conn = connect();
     if($admin)
