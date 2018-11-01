@@ -3,7 +3,6 @@
 <TITLE>SCU Businesses</TITLE>
 </HEAD>
 
-<BODY BGCOLOR="#ffffcc" TEXT="#000000" LINK="#ff0000" VLINK="#990033">
 
 <H1 ALIGN=CENTER>SCU Alumni Businesses</H1>
 
