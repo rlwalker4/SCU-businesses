@@ -5,6 +5,10 @@
 <TITLE>SCU Businesses Directory</TITLE>
 </HEAD>
 
+<?php
+	echo $_POST["Name"];
+?>
+
 <div class="w3-flat-pomegranate">
 <div Align =left> <a href="AlumniOffice.php" class="w3-button w3-black">Alumni Office Login</a></div>
 <H1 ALIGN=CENTER>SCU Alumni Businesses</H1>
@@ -31,7 +35,7 @@
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
             <h3>Filter By: </h3>
-                <form action="index.php" method = "addListing">
+                <form action="index.php" method = "post">
                 Location: <input type="text" name="Location" value=""><br>
                 Business Type: <input type="text" name="Type" value=""><br>
                 <input type="submit" value="Filter">
@@ -40,8 +44,8 @@
         <br>
         <div class="w3-container w3-light-grey w3-justify">
             <h3>Add New Business: </h3>
-                <form action="index.php" method = "addListing">
-                Name: <input type="text" name="Name:" value=""><br>
+                <form action="index.php" method = "post">
+                Name: <input type="text" name="Name" value=""><br>
                 Location: <input type="text" name="Location" value=""><br>
                 Type: <input type="text" name="Type" value=""><br>
                 Info: <input type="text" name="Info" value=""><br>
