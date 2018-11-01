@@ -41,8 +41,8 @@
                 Location: <input type="text" name="Location" value=""><br>
                 Type: <input type="text" name="Type" value=""><br>
                 Info: <input type="text" name="Info" value=""><br>
-                Grad_year: <input type="text" name="Grad Year" value=""><br>
-                User_name: <input type="text" name="Username" value=""><br>
+                Grad Year: <input type="text" name="Grad Year" value=""><br>
+                Username: <input type="text" name="Username" value=""><br>
                 Degree: <input type="text" name ="Degree" value = ""><br>
                 <input type="submit" value="Submit">
                 </form>
