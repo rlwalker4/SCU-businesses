@@ -24,12 +24,12 @@
 </div>
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
-	<div class="w3-twothird w3-content w3-light-grey">    
+	
 
 	<?php
 	getListings(1);
 	?>
-	</div>
+
 
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
