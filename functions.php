@@ -28,8 +28,9 @@ function getListings($admin, $filterLocation, $filterType)
 		$stid = $stid . ", BusinessLocation='${filterLocation}'";
 	}
 	if($filterType != ""){
-		$stid = $stid . ", BusinessType= '${filterLocation}'";
+		$stid = $stid . ", BusinessType= '${filterType}'";
 	}
+	echo 
 	$stid = oci_parse($conn, $stid)
 	if(!$stid){
 		$e = oci_error($conn);
