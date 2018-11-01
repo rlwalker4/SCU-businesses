@@ -59,6 +59,7 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
+	echo $stid;
 	$response = oci_execute($stid);
 	if(!$response){
 		$e = oci_error($conn);
