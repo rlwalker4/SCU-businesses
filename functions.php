@@ -5,7 +5,6 @@ function connect()
 {
 $conn = oci_connect('PPAULSON', 'coen174oracle', '//dbserver.engr.scu.edu/db11g');
 if($conn) {
-	print "<br> connection successful <br>";
 	return $conn;
 } else {
 	$e = oci_error;
@@ -90,13 +89,15 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	$hashstr = hash('sha256', $hashstr);
 	echo $hashstr;
 	echo '<br>';
-	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
+	$str = "INSERT INTO listings VALUES('c', 'b', 'a', 'a', 'ajksdklajsbd', 0);";
+	//$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
 	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
+	echo $stid;
 	$response = oci_execute($stid);
 	if(!$response){
 		$e = oci_error($conn);
