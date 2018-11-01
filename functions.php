@@ -47,7 +47,7 @@ function getListings($admin, $filterLocation, $filterType)
 		$i = 0;
 		foreach ($row as $item) {
 			$i++;
-			if($i < 4)
+			if($i < 5)
 				print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
 			}
 		print "</tr>\n";
@@ -84,7 +84,7 @@ function getListingsAdmin($admin)
         foreach ($row as $item) {
             print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
             }
-        print "<td> <i class='fas fa-trash'></i></td>\n";
+        print "<td> <button> <i class='fas fa-trash'></i></button></td>\n";
         print "</tr>\n";
     }
     print "</table>\n";
