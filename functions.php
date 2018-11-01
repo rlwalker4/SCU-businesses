@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <?php
 function connect()
 {
@@ -31,7 +32,8 @@ function getListings($admin)
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	print "<table class="w3-twothird w3-table-all w3-card-2">\n";
+	print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
+	print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th>";
 	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 		print "<tr>\n";
 		foreach ($row as $item) {
