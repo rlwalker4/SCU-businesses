@@ -32,13 +32,6 @@
 </tr>
 </table>
 
-<div class="w3-third">
-<div class="w3-container w3-light-grey w3-justify">
-<h3>Filter By: </h3>
-</div>
-</div>
-</div>
-
 
 <br>
 
