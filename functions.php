@@ -52,7 +52,8 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	$hashstr = hash('sha256', $hashstr);
 	echo $hashstr;
 	echo '<br>';
-	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
+	$str = "INSERT INTO listings VALUES('c', 'b', 'a', 'a', 'ajksdklajsbd', 0);";
+	//$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0);";
 	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
