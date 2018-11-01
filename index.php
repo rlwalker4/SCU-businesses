@@ -1,23 +1,16 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 <HTML>
 <a href="AlumniOffice.php" class="w3-button w3-black">Alumni Office Login</a>
 <HEAD>
 <TITLE>SCU Businesses</TITLE>
 </HEAD>
 
-
+<div class="w3-flat-pomegranate">
 <H1 ALIGN=CENTER>SCU Alumni Businesses</H1>
-
-Find SCU alumni-owned businesses. If you are an SCU Alum, please add your business listing here.
+</div>
 
 </BODY>
-
-<HR COLOR="#990033">
-
-
-
-<HR COLOR="#990033">
-
 
 <ul class="w3-ul w3-border">
     <li><h2>Names</h2></li>
