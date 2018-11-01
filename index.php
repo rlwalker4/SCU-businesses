@@ -6,8 +6,13 @@
 </HEAD>
 
 <?php
+	int i = 0;
 	foreach ($_POST as $var)
-		 echo $var;
+		i++
+		echo $var;
+	if(i == 7){
+		addListing($_POST["Name"], $_POST["Location"], $_POST["Type"], $_POST["Info"], $_POST["Grad Year"], $_POST["Username"], $_POST["Degree"],)
+	}
 ?>
 
 <div class="w3-flat-pomegranate">
