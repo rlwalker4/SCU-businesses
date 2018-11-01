@@ -64,6 +64,20 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
+	
+	$str = "COMMIT;";
+	echo $str;
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
 	oci_free_statement($stid);
 	oci_close($conn);
 }
