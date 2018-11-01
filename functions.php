@@ -35,8 +35,11 @@ function getListings($admin)
 	print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th>";
 	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 		print "<tr>\n";
+		$i = 0;
 		foreach ($row as $item) {
-			print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+			$i++;
+			if($i < 4)
+				print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
 			}
 		print "</tr>\n";
 	}
