@@ -19,18 +19,19 @@ function getListings($admin, $filterLocation, $filterType)
 	$conn = connect();
 	if($admin)
 	{
-		$stid = 'SELECT * FROM listings';
+		$stid = 'SELECT * FROM listings WHERE IsApproved>=0';
 	} else {
 		$stid = 'SELECT * FROM listings WHERE IsApproved=1';
 	}
 
 	if($filterLocation != ""){
-		$stid = $stid . ", BusinessLocation='${filterLocation}'";
+		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
 	if($filterType != ""){
-		$stid = $stid . ", BusinessType= '${filterLocation}'";
+		$stid = $stid . "AND BusinessType= '${filterType}'";
 	}
-	$stid = oci_parse($conn, $stid)
+	echo $stid;
+	$stid = oci_parse($conn, $stid);
 	if(!$stid){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -155,7 +156,7 @@ function removeListingAdmin($name){
 function approveListing($name){
 	
 	$conn = connect();
-	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'"
+	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'";
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
 		$e = oci_error($conn);
