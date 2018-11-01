@@ -16,7 +16,7 @@ This is Peter L Paulson's web page.  You can send mail to me at <A HREF="mailto:
   <LI><A HREF="http://www.engr.scu.edu">SCU School of Engineering</A>
   <LI><A HREF="http://www.dc.engr.scu.edu">SCU Engineering Design Center</A>
   <LI><A HREF="http://students.engr.scu.edu">Engineering Student Webpages</A>
-  <LI><A HREF="test.php">Test page</A>
+  <LI><A HREF="AlumniOffice.php">Test page</A>
 </UL>
 
 <HR COLOR="#990033">
