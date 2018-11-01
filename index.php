@@ -26,10 +26,9 @@
 	
 
 	<?php
-		//getListings(1, $_POST["LocationF"], $_POST[TypeF]);
-		getListings(1);
+		getListings(1, $_POST["LocationF"], $_POST["TypeF"]);
+		//getListings(1);
 	?>
-
 
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
