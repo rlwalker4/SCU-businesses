@@ -39,7 +39,7 @@ function getListings($admin)
 		$i = 0;
 		foreach ($row as $item) {
 			$i++;
-			if($i < 4)
+			if($i < 5)
 				print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
 			}
 		print "</tr>\n";

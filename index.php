@@ -9,8 +9,8 @@
 	include 'functions.php';
 	$i = 0;
 	foreach ($_POST as $var){
-		$i++;
-		echo $var;
+		if($var != '')
+			$i++;
 	}
 	if($i == 7){
 		addListing($_POST["Name"], $_POST["Location"], $_POST["Type"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
