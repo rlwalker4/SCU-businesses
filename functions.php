@@ -28,17 +28,10 @@ function getListings($admin, $filterLocation, $filterType)
 		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
 	if($filterType != ""){
-<<<<<<< HEAD
-		$stid = $stid . ", BusinessType= '${filterType}'";
-	}
-	echo 
-	$stid = oci_parse($conn, $stid)
-=======
 		$stid = $stid . "AND BusinessType= '${filterType}'";
 	}
 	echo $stid;
 	$stid = oci_parse($conn, $stid);
->>>>>>> 1e86284eb71f81364ccab1c3c249b88bec96f1e3
 	if(!$stid){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -91,16 +84,16 @@ function getListingsAdmin($admin)
     while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         print "<tr>\n";
         
-        $deleteNameValue;
+        $deleteNameValue = 0;
         foreach ($row as $item) {
-            if($deleteNameValue == null){
+            if($deleteNameValue == 0){
                $deleteNameValue =  $item;
             }
             print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
             }
-        print "<td> <button name='buttonName".i."' value=". $deletNameValue." onClick ='deleteListing(buttonName".i.")' > <i class='fas fa-trash'></i></button></td>\n";
+        print "<td> <button name='buttonName".$i."' value=". $deleteNameValue." onClick ='deleteListing(buttonName".$i.")' > <i class='fas fa-trash'></i></button></td>\n";
         print "</tr>\n";
-        i++;
+        $i++;
     }
     print "</table>\n";
     print "<br>";
@@ -185,4 +178,3 @@ function approveListing($name){
 	oci_close($conn);
 }
 ?>
-
