@@ -13,25 +13,10 @@
 
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
-<table class="w3-twothird w3-table-all w3-card-2">
-<tr>
-<th>Name</th>
-<th>Business Type</th>
-<th>Location</th>
-<th>Delete</th>
-</tr>
-<tr>
-<td>Bob's Burgers</td>
-<td>
-<?php
-    echo "PHP";
+    <?php
+        getListings(1);
     ?>
-</td>
-<td>SCU</td>
-<td><i class="fas fa-trash"></i></td>
-</tr>
-</table>
-
+</div>
 
 <br>
 
