@@ -31,7 +31,7 @@ function getListings($admin)
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	print "<table border='1'>\n";
+	print "<table class="w3-twothird w3-table-all w3-card-2">\n";
 	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 		print "<tr>\n";
 		foreach ($row as $item) {
