@@ -22,7 +22,10 @@
     </div>
     <div class="w3-third">
         <div class="w3-container w3-light-grey w3-justify">
-            <h2>Very New News!</h2>
+            <p>
+            <label class="w3-text-blue"><b>Within how many miles</b></label>
+            <input class="w3-input w3-border" name="distance" type="text"></p>
+
         </div>
     </div>
 </div>
