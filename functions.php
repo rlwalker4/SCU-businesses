@@ -76,7 +76,7 @@ function getListingsAdmin($admin)
         foreach ($row as $item) {
             print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
             }
-        print "<td> <i class='fas fa-trash'></i></td>\n";
+        print "<td> <button> <i class='fas fa-trash'></i></button></td>\n";
         print "</tr>\n";
     }
     print "</table>\n";
