@@ -18,14 +18,16 @@
         getListingsAdmin(1);
     ?>
 </div>
-<script>
-function deleteListing(name){
-    <?php
-    include 'functions.php';
-    removeListingAdmin(name);
-    ?>
-}
-</script>
+
+<div class="w3-third">
+    <div class="w3-container w3-light-grey w3-justify">
+    <h3>Remove Listing </h3>
+<form action="index.php" method = "post">
+Name: <input type="text" name="DeleteName" value=""><br>
+
+<input type="submit" value="Filter">
+</form>
+</div>
 <br>
 
 </HTML>
