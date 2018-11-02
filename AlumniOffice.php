@@ -11,6 +11,15 @@
 <H1 ALIGN=CENTER>Alumni Office Admin Page</H1>
 </div>
 
+<?php
+    $i = 0;
+    foreach ($_POST as $var){
+        if ($var != "")
+            i++;
+    }
+    if(i==1){
+        removeListingAdmin($_POST["DeleteName"]);
+    }
 
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
@@ -30,10 +39,6 @@
     </div>
 </div>
 </div>
-<?php
-   
-    getListingsAdmin(1);
-    ?>
 <br>
 
 </HTML>
