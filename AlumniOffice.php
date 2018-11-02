@@ -21,8 +21,7 @@
 <script>
 function deleteListing(name){
     <?php
-    include 'functions.php';
-    removeListingAdmin(name);
+    	removeListingAdmin(name);
     ?>
 }
 </script>
