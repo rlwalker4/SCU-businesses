@@ -26,7 +26,7 @@
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
 	
-        getListingsAdmin(1);
+        getListingsAdmin();
     ?>
 </div>
 
