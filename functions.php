@@ -151,7 +151,7 @@ function removeListing($hash){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	oci_free_statement($conn);
+	oci_free_statement($stid);
 	oci_close($conn);
 
 }
@@ -170,7 +170,7 @@ function removeListingAdmin($name){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	oci_free_statement($conn);
+	oci_free_statement($stid);
 	oci_close($conn);
 	
 }
@@ -191,5 +191,26 @@ function approveListing($name){
 	}
 	oci_free_statement($conn);
 	oci_close($conn);
+}
+
+function checkAlumniLogin($pass){
+
+	$file = fopen("pw.txt", "r");
+	$str = fgets($file);
+	if(strcmp($str, $hash('sha256', $pass)) == 0){
+		fclose($file);
+		return true;
+	}else{
+		fclose($file);
+		return false;
+	}	
+}
+
+function changePass($pass){
+
+	$file = fopen("pw.txt", "w");
+	$str = hash('sha256', $pass);
+	fwrite($file, $str);
+	fclose($file);
 }
 ?>
