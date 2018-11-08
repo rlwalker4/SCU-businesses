@@ -11,10 +11,21 @@
 <H1 ALIGN=CENTER>Alumni Office Admin Page</H1>
 </div>
 
-
+<?php
+	include 'functions.php';
+    $i = 0;
+    foreach ($_POST as $var){
+        if ($var != ""){
+            $i++;
+	}
+    }
+    if($i==1){
+        removeListingAdmin($_POST["DeleteName"]);
+    }
+?>
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
-		include 'functions.php';
+	
         getListingsAdmin(1);
     ?>
 </div>
@@ -22,11 +33,13 @@
 <div class="w3-third">
     <div class="w3-container w3-light-grey w3-justify">
     <h3>Remove Listing </h3>
-<form action="index.php" method = "post">
-Name: <input type="text" name="DeleteName" value=""><br>
+    <form action="AlumniOffice.php" method = "post">
+        Name: <input type="text" name="DeleteName" value=""><br>
 
-<input type="submit" value="Filter">
-</form>
+        <input type="submit" value="Filter">
+    </form>
+    </div>
+</div>
 </div>
 
 <br>
