@@ -83,7 +83,6 @@ function getListingsAdmin($admin)
 	$deleteNameValue = 0;
     while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         print "<tr>\n";
-       
         foreach ($row as $item) {
             if($deleteNameValue == 0){
                $deleteNameValue =  $item;
@@ -174,4 +173,3 @@ function approveListing($name){
 	oci_close($conn);
 }
 ?>
-
