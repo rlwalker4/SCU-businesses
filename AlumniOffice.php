@@ -12,18 +12,20 @@
 </div>
 
 <?php
+	include 'functions.php';
     $i = 0;
     foreach ($_POST as $var){
-        if ($var != "")
-            i++;
+        if ($var != ""){
+            $i++;
+	}
     }
-    if(i==1){
+    if($i==1){
         removeListingAdmin($_POST["DeleteName"]);
     }
-
+?>
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
-		include 'functions.php';
+	
         getListingsAdmin(1);
     ?>
 </div>
