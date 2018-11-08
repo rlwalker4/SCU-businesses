@@ -23,14 +23,13 @@ function getListings($admin, $filterLocation, $filterType)
 	} else {
 		$stid = 'SELECT * FROM listings WHERE IsApproved=1';
 	}
-
 	if($filterLocation != ""){
 		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
 	if($filterType != ""){
 		$stid = $stid . "AND BusinessType= '${filterType}'";
 	}
-	echo $stid;
+
 	$stid = oci_parse($conn, $stid);
 	if(!$stid){
 		$e = oci_error($conn);
@@ -81,10 +80,9 @@ function getListingsAdmin($admin)
     print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
     print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th><th>Delete</th>";
     $i =0;
+	$deleteNameValue = 0;
     while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         print "<tr>\n";
-        
-        $deleteNameValue = 0;
         foreach ($row as $item) {
             if($deleteNameValue == 0){
                $deleteNameValue =  $item;
@@ -107,13 +105,11 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	$hashstr = $grad_year . $user_name . $degree;
 	$hashstr = hash('sha256', $hashstr);
 	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0)";
-	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	echo $stid;
 	$response = oci_execute($stid);
 	if(!$response){
 		$e = oci_error($conn);
@@ -121,7 +117,6 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	}
 	
 	$str = "COMMIT";
-	echo $str;
 	$stid = oci_parse($conn, $str);
 	if(!$stid){
 		$e = oci_error($conn);
