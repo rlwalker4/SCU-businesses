@@ -37,26 +37,31 @@ h3{
                 <h2>Modal Header</h2>
             </header>
             <div class="w3-container">
-                <form method="POST" class="form1" onsubmit="return checkPassword();  return false;">
+<form method="POST" class="form1" onsubmit="return checkPassword();">
                     Password: <input type="password" id="password">
                     <input  class"buttons" type="submit" value="Submit" >
                 </form>
             </div>
-<script>
-function checkPassword(){
-    if(document.getElementById('password').value == 'hello'){
-        alert('Correct Password!');
-        location.href="AlumniOffice.php";
-    } else {
-        alert('Wrong Password!');
-        return false;
-    }
-}
-</script>
-        </div>
-    </div>
 
-<div Align =left> <a href="AlumniOffice.php" class="w3-button w3-black">Alumni Office Login</a></div>
+
+<!--
+https://stackoverflow.com/questions/35710019/javascript-simple-redirect-after-password-is-entered
+used this to set up the javascript function to send the password value to go to a new page
+-->
+        <script>
+            function checkPassword(){
+                if(document.getElementById('password').value == 'hello'){
+                    alert('Correct Password!');
+                    location.href="AlumniOffice.php";
+                    return false;
+                } else {
+                    alert('Wrong Password!');
+                    return false;
+                }
+            }
+    </script>
+    </div>
+</div>
 
 <div class="w3-container">
 	<h1 ALIGN=CENTER>SCU Alumni Businesses
