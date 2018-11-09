@@ -17,7 +17,7 @@ if($conn) {
 function getListings($filterLocation, $filterType)
 {
 	$conn = connect();
-	$stid = 'SELECT * FROM listings WHERE IsApproved=1';
+	$stid = 'SELECT * FROM listings WHERE IsApproved>=1';
 	if($filterLocation != ""){
 		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
