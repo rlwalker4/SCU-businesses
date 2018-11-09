@@ -95,13 +95,13 @@ function checkPassword(){
 				$i++;
 		}
 		if($i == 2)
-			getListings(1, $_POST["LocationF"], $_POST["TypeF"]);
+			getListings($_POST["LocationF"], $_POST["TypeF"]);
 		else if($i == 1 && $key == "TypeF" && $_POST["TypeF"] != "")
-			getListings(1, "", $_POST["TypeF"]);
+			getListings("", $_POST["TypeF"]);
 		else if($i == 1)
-			getListings(1, $_POST["LocationF"], "");
+			getListings($_POST["LocationF"], "");
 		else
-			getListings(1, "", "");
+			getListings("", "");
 		
 		//getListings(1);
 	?>
