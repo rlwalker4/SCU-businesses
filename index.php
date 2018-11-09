@@ -6,7 +6,7 @@
 <TITLE>SCU Businesses</TITLE>
 <style>
 h1{
-	font-family: 'Prata', serif;
+	font-family: "Times New Roman", Times, serif;
 	color: #FFFFFF;
 	background-color: #72001B;
 }
@@ -69,7 +69,7 @@ function checkPassword(){
             <h3>Filter By</h3>
                 <form action="index.php" method = "post">
                 Location<br><input type="text" name="LocationF" value=""><br>
-                Business Type<br><input type="text" name="TypeF" value=""><br>
+                Business Type<br><input type="text" name="TypeF" value=""><br><br>
                 <input type="submit" value="Filter">
                 </form>
         </div>
@@ -83,8 +83,8 @@ function checkPassword(){
                 Info<br><input type="text" name="Info" value=""><br>
                 Grad Year<br><input type="text" name="GradYear" value=""><br>
                 Username<br><input type="text" name="Username" value=""><br>
-                Degree<br><input type="text" name ="Degree" value = ""><br>
-
+                Degree<br><input type="text" name ="Degree" value = ""><br><br>
+				<input type="submit" value="Submit">
                 </form>
         </div>
     </div>
