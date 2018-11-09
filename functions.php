@@ -14,15 +14,10 @@ if($conn) {
 	}
 }
 
-function getListings($admin, $filterLocation, $filterType)
+function getListings($filterLocation, $filterType)
 {
 	$conn = connect();
-	if($admin)
-	{
-		$stid = 'SELECT * FROM listings WHERE IsApproved>=0';
-	} else {
-		$stid = 'SELECT * FROM listings WHERE IsApproved=1';
-	}
+	$stid = 'SELECT * FROM listings WHERE IsApproved=1';
 	if($filterLocation != ""){
 		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
@@ -59,45 +54,41 @@ function getListings($admin, $filterLocation, $filterType)
 	oci_close($conn);
 }
 
-function getListingsAdmin($admin)
+function getListingsAdmin()
 {
-    $conn = connect();
-    if($admin)
-    {
-        $stid = oci_parse($conn, 'SELECT * FROM listings');
-    } else {
-        $stid = oci_parse($conn, 'SELECT * FROM listings WHERE IsApproved=1');
-    }
-    if(!$stid){
-        $e = oci_error($conn);
-        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-    }
-    $response = oci_execute($stid);
-    if(!$response){
-        $e = oci_error($conn);
-        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-    }
-    print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
-    print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th><th>Delete</th>";
-    $i =0;
+	$conn = connect();
+	$stid = 'SELECT * FROM listings';	
+    	$stid = oci_parse($conn, $stid);
+    	if(!$stid){
+        	$e = oci_error($conn);
+        	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    	}
+	$response = oci_execute($stid);
+	if(!$response){
+        	$e = oci_error($conn);
+        	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    	}
+    	print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
+    	print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th><th>Delete</th>";
+    	$i =0;
 	$deleteNameValue = 0;
-    while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        print "<tr>\n";
-        foreach ($row as $item) {
-            if($deleteNameValue == 0){
-               $deleteNameValue =  $item;
-            }
-            print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
-            }
-        print "<td> <button name='buttonName".$i."' value=". $deleteNameValue." onClick ='deleteListing(buttonName".$i.")' > <i class='fas fa-trash'></i></button></td>\n";
-        print "</tr>\n";
-        $i++;
-    }
-    print "</table>\n";
-    print "<br>";
+    	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+        	print "<tr>\n";
+        	foreach ($row as $item) {
+            		if($deleteNameValue == 0){
+               			$deleteNameValue =  $item;
+            		}
+            		print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+            	}
+        	print "<td> <button name='buttonName".$i."' value=". $deleteNameValue." onClick ='deleteListing(buttonName".$i.")' > <i class='fas fa-trash'></i></button></td>\n";
+        	print "</tr>\n";
+        	$i++;
+    	}
+    	print "</table>\n";
+    	print "<br>";
         
-    oci_free_statement($stid);
-    oci_close($conn);
+    	oci_free_statement($stid);
+   	oci_close($conn);
 }
 
 function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree){
@@ -146,7 +137,7 @@ function removeListing($hash){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	oci_free_statement($conn);
+	oci_free_statement($stid);
 	oci_close($conn);
 
 }
@@ -165,7 +156,7 @@ function removeListingAdmin($name){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	oci_free_statement($conn);
+	oci_free_statement($stid);
 	oci_close($conn);
 	
 }
@@ -186,5 +177,67 @@ function approveListing($name){
 	}
 	oci_free_statement($conn);
 	oci_close($conn);
+}
+
+function checkAlumniLogin($pass){
+
+	$file = fopen("pw.txt", "r");
+	$str = fgets($file);
+	if(strcmp($str, $hash('sha256', $pass)) == 0){
+		fclose($file);
+		return true;
+	}else{
+		fclose($file);
+		return false;
+	}	
+}
+
+function changePass($pass){
+	$file = fopen("pw.txt", "w");
+	$str = hash('sha256', $pass);
+	fwrite($file, $str);
+	fclose($file);
+}
+
+function getUsers(){
+	
+	
+    $conn = connect();
+    if($admin)
+    {
+        $stid = oci_parse($conn, 'SELECT * FROM listings');
+    } else {
+        $stid = oci_parse($conn, 'SELECT * FROM listings WHERE IsApproved=1');
+    }
+    if(!$stid){
+        $e = oci_error($conn);
+        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    }
+    $response = oci_execute($stid);
+    if(!$response){
+        $e = oci_error($conn);
+        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    }
+    print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
+    print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th><th>Delete</th>";
+    $i =0;
+	$deleteNameValue = 0;
+    while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+        print "<tr>\n";
+        foreach ($row as $item) {
+            if($deleteNameValue == 0){
+               $deleteNameValue =  $item;
+            }
+            print " <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+            }
+        print "<td> <button name='buttonName".$i."' value=". $deleteNameValue." onClick ='deleteListing(buttonName".$i.")' > <i class='fas fa-trash'></i></button></td>\n";
+        print "</tr>\n";
+        $i++;
+    }
+    print "</table>\n";
+    print "<br>";
+        
+    oci_free_statement($stid);
+    oci_close($conn);
 }
 ?>
