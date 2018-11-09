@@ -17,7 +17,7 @@ if($conn) {
 function getListings($filterLocation, $filterType)
 {
 	$conn = connect();
-	$stid = 'SELECT * FROM listings WHERE IsApproved>=1';
+	$stid = 'SELECT * FROM listings WHERE IsApproved=1';
 	if($filterLocation != ""){
 		$stid = $stid . "AND BusinessLocation= '${filterLocation}'";
 	}
@@ -197,6 +197,37 @@ function changePass($pass){
 	$str = hash('sha256', $pass);
 	fwrite($file, $str);
 	fclose($file);
+}
+
+function addUser($name, $contact){
+		
+	$conn = connect();
+	$str = "INSERT INTO visitors VALUES ('${name}', '${contact}')";
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	
+	$str = "COMMIT";
+	$stid = oci_parse($conn, $str);
+	if(!$stid){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+	$response = oci_execute($stid);
+	if(!$response){
+		$e = oci_error($conn);
+		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	}
+
+	oci_free_statement($stid);
+	oci_close($conn);
 }
 
 function getUsers(){
