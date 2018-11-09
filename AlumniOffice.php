@@ -8,6 +8,7 @@
 
 <div class="w3-flat-pomegranate">
 <div Align =left> <a href="index.php" class="w3-button w3-black">Back to directory</a></div>
+<div Align =left> <a href="users.php" class="w3-button w3-black">View Users</a></div>
 <H1 ALIGN=CENTER>Alumni Office Admin Page</H1>
 </div>
 
