@@ -13,6 +13,9 @@ h1{
 h3{
 	color: #72001B;
 }
+h5{
+    color: #72001B;
+}
 </style>
 </HEAD>
 
@@ -86,7 +89,7 @@ used this to set up the javascript function to send the password value to go to 
                 Location<br><input type="text" name="LocationA" value=""><br>
                 Business Type<br><input type="text" name="TypeA" value=""><br>
                 Description<br><input type="text" name="Info" value=""><br>
-<h5>Verification of Alumni Status </h5>
+<h5>Please Verify Alumni Status </h5>
                 Grad Year<br><input type="text" name="GradYear" value=""><br>
                 Username<br><input type="text" name="Username" value=""><br>
                 Degree<br><input type="text" name ="Degree" value = ""><br><br>
