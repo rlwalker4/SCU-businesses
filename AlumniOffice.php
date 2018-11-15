@@ -24,6 +24,20 @@
         removeListingAdmin($_POST["DeleteName"]);
     }
 ?>
+
+
+<?php
+    include 'functions.php';
+    $i = 0;
+    foreach ($_POST as $var){
+        if ($var != ""){
+            $i++;
+        }
+    }
+    if($i==1){
+        approveListing($_POST["ApproveName"]);
+    }
+?>
 <div class="w3-row-padding w3-content" style="max-width:1400px">
     <?php
 	
@@ -39,6 +53,14 @@
 
         <input type="submit" value="Filter">
     </form>
+    </div>
+    <div class="w3-container w3-light-grey w3-justify">
+        <h3>Remove Listing </h3>
+        <form action="AlumniOffice.php" method = "post">
+        Name: <input type="text" name="ApproveName" value=""><br>
+
+        <input type="submit" value="Filter">
+        </form>
     </div>
 </div>
 </div>
