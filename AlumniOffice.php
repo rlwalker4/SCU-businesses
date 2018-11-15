@@ -40,7 +40,24 @@ h5{
     }
 ?>
 
+<<<<<<< HEAD
+
+<?php
+    include 'functions.php';
+    $i = 0;
+    foreach ($_POST as $var){
+        if ($var != ""){
+            $i++;
+        }
+    }
+    if($i==1){
+        approveListing($_POST["ApproveName"]);
+    }
+?>
+<div class="w3-row-padding w3-content" style="max-width:1400px">
+=======
 <div class="w3-container">
+>>>>>>> d4bfba4df8108da1b929b2cd7a86d9165c0f31c4
     <?php
     getListingsAdmin();
     ?>
@@ -54,6 +71,14 @@ h5{
                 </form>
             </div>
         </div>
+    </div>
+    <div class="w3-container w3-light-grey w3-justify">
+        <h3>Remove Listing </h3>
+        <form action="AlumniOffice.php" method = "post">
+        Name: <input type="text" name="ApproveName" value=""><br>
+
+        <input type="submit" value="Filter">
+        </form>
     </div>
 </div>
 <br>
