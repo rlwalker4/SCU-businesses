@@ -175,7 +175,7 @@ function approveListing($name){
 		$e = oci_error($conn);
 		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	oci_free_statement($conn);
+	oci_free_statement($stid);
 	oci_close($conn);
 }
 
