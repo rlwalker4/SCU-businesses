@@ -72,32 +72,32 @@ used this to set up the javascript function to send the password value to go to 
 </div>
 
 <div class="w3-container">
-    <div class="w3-third">
-    <div class="w3-half">
-        <div class="w3-container w3-light-grey w3-justify">
-            <h3>Filter By</h3>
-                <form action="index.php" method = "post">
-                Location<br><input type="text" name="LocationF" value=""><br>
-                Business Type<br><input type="text" name="TypeF" value=""><br><br>
-                <input type="submit" value="Filter">
-                </form>
+    <div class="w3-quarter">
+        <div class="w3-twothird">
+            <div class="w3-container w3-light-grey w3-justify">
+                <h3>Filter By</h3>
+                    <form action="index.php" method = "post">
+                    Location<br><input type="text" name="LocationF" value=""><br>
+                    Business Type<br><input type="text" name="TypeF" value=""><br><br>
+                    <input type="submit" value="Filter">
+                    </form>
+            </div>
+            <br>
+            <div class="w3-container w3-light-grey w3-justify">
+                <h3>Add New Business</h3>
+                    <form action="index.php" method = "post">
+                    Name<br> <input type="text" name="Name" value=""><br>
+                    Location<br><input type="text" name="LocationA" value=""><br>
+                    Business Type<br><input type="text" name="TypeA" value=""><br>
+                    Description<br><input type="text" name="Info" value=""><br>
+                    <h5>Verify Alumni Status</h5>
+                    Grad Year<br><input type="text" name="GradYear" value=""><br>
+                    Username<br><input type="text" name="Username" value=""><br>
+                    Degree<br><input type="text" name ="Degree" value = ""><br><br>
+                    <input type="submit" value="Submit Listing">
+                    </form>
+            </div>
         </div>
-        <br>
-        <div class="w3-container w3-light-grey w3-justify">
-            <h3>Add New Business</h3>
-                <form action="index.php" method = "post">
-                Name<br> <input type="text" name="Name" value=""><br>
-                Location<br><input type="text" name="LocationA" value=""><br>
-                Business Type<br><input type="text" name="TypeA" value=""><br>
-                Description<br><input type="text" name="Info" value=""><br>
-                <h5>Verify Alumni Status</h5>
-                Grad Year<br><input type="text" name="GradYear" value=""><br>
-                Username<br><input type="text" name="Username" value=""><br>
-                Degree<br><input type="text" name ="Degree" value = ""><br><br>
-                <input type="submit" value="Submit Listing">
-                </form>
-        </div>
-    </div>
     </div>
 	<?php
 		$i = 0;
