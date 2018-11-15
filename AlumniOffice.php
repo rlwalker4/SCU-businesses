@@ -41,6 +41,9 @@ h5{
 ?>
 
 <div class="w3-container">
+    <?php
+    getListingsAdmin();
+    ?>
     <div class="w3-quarter">
         <div class="w3-twothird">
             <div class="w3-container w3-light-grey w3-justify">
@@ -52,9 +55,6 @@ h5{
             </div>
         </div>
     </div>
-    <?php
-        getListingsAdmin();
-    ?>
 </div>
 <br>
 <p>
