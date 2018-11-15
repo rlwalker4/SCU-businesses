@@ -37,14 +37,18 @@ h5{
             <header class="w3-container w3-flat-pomegranate">
                 <span onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>
-                <h2>Modal Header</h2>
+                <h2>Alumni Office Login</h2>
             </header>
             <div class="w3-container">
-<form method="POST" class="form1" onsubmit="return checkPassword();">
+                <form method="POST" class="form1" onsubmit="return checkPassword();">
+                    <br>
                     Password: <input type="password" id="password">
                     <input  class"buttons" type="submit" value="Submit" >
                 </form>
             </div>
+        </div>
+    </div>
+
 
 
 <!--
