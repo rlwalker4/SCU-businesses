@@ -85,7 +85,8 @@ used this to set up the javascript function to send the password value to go to 
 					Name<br> <input type="text" name="Name" value=""><br>
                     Location<br><input type="text" name="LocationF" value=""><br>
                     Business Type<br><input type="text" name="TypeF" value=""><br>
-					Description<br><input type="text" name="Info" value=""><br><br>
+					Description<br>
+					<textarea rows="4" cols = "20" name="Info"></textarea><br><br>
                     <input type="submit" value="Filter">
                     </form>
             </div>
@@ -96,7 +97,8 @@ used this to set up the javascript function to send the password value to go to 
                     Name<br> <input type="text" name="Name" value=""><br>
                     Location<br><input type="text" name="LocationA" value=""><br>
                     Business Type<br><input type="text" name="TypeA" value=""><br>
-                    Description<br><input type="text" name="Info" value=""><br>
+                    Description<br>
+					<textarea rows="4" cols = "20" name="Info"></textarea><br><br>
                     <h5>Verify Alumni Status</h5>
                     Grad Year<br><input type="text" name="GradYear" value=""><br>
                     Username<br><input type="text" name="Username" value=""><br>
@@ -111,7 +113,8 @@ used this to set up the javascript function to send the password value to go to 
                     Name<br> <input type="text" name="Name" value=""><br>
                     Location<br><input type="text" name="LocationA" value=""><br>
                     Business Type<br><input type="text" name="TypeA" value=""><br>
-                    Description<br><input type="text" name="Info" value=""><br>
+                    Description<br>
+					<textarea rows="4" cols = "20" name="Info"></textarea><br><br>
                     <h5>Verify Alumni Status</h5>
                     Grad Year<br><input type="text" name="GradYear" value=""><br>
                     Username<br><input type="text" name="Username" value=""><br>
