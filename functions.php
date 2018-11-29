@@ -16,7 +16,6 @@ if($conn) {
 
 function executeCommand($command, $conn)
 {
-	$stid = $command;
 	$stid = oci_parse($conn, $command);
 	if(!$stid){
 		$e = oci_error($conn);
@@ -166,13 +165,6 @@ function checkAlumniLogin($pass){
 		fclose($file);
 		return false;
 	}	
-}
-
-function changePass($pass){
-	$file = fopen("pw.txt", "w");
-	$str = hash('sha256', $pass);
-	fwrite($file, $str);
-	fclose($file);
 }
 
 function addUser($name, $contact){
