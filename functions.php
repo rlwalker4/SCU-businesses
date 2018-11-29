@@ -111,7 +111,16 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 function editListing($name){
 	
 	$conn = connect();
-	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'";
+	$str = "DELETE FROM listings WHERE BusinessName='${name}' AND IsEdited=0";
+	$stid = executeCommand($str, $conn);
+
+	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'";	
+	$stid = executeCommand($str, $conn);
+
+	$str = "UPDATE listings SET IsEdited = 0 WHERE BusinessName='${name}'";	
+	$stid = executeCommand($str, $conn);
+
+	$str = "COMMIT";
 	$stid = executeCommand($str, $conn);
 	oci_free_statement($stid);
 	oci_close($conn);

@@ -35,8 +35,8 @@ h5{
 	if(!empty($_POST["ApproveName"])){
 	    approveListing($_POST["ApproveName"]);
 	}
-	if(!empty($_POST["EditHash"])){
-		editListing($_POST["EditHash"]);
+	if(!empty($_POST["EditName"])){
+		editListing($_POST["EditName"]);
 	}
 ?>
 
