@@ -19,6 +19,27 @@ h5{
 </style>
 </HEAD>
 
+<div id="id03" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <header class="w3-container w3-flat-pomegranate">
+        <span onclick="document.getElementById('id03').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Access Denied</h2>
+        </header>
+    </div>
+</div>
+
+<body onload= "PopCheck()" >
+<script>
+    function PopCheck(){
+        if(sessionStorage.getItem("correctPassword") != true){
+            document.getElementById('id02').style.display='block'
+        
+        }
+    }
+</script>
+
+
 <div Align =left> <a href="index.php" class="w3-button w3-black">Back to directory</a></div>
 <div Align =left> <a href="users.php" class="w3-button w3-black">View Users</a></div>
 <div class="w3-container">

@@ -99,6 +99,7 @@ used this to set up the javascript function to send the password value to go to 
                
                 if(document.getElementById('password').value == 'hello'){
                     alert('Correct Password!');
+                    sessionStorage.setItem("correctPassword",true);
                     location.href="AlumniOffice.php";
                     return false;
                 } else {
