@@ -29,33 +29,42 @@ h5{
 
 <?php
 	include 'functions.php';
-    $i = 0;
-    foreach ($_POST as $var){
-        if ($var != ""){
-            $i++;
+	if(!empty($_POST["DeleteName"])){
+	    removeListingAdmin($_POST["DeleteName"]);
 	}
-    }
-    if($i==1){
-        removeListingAdmin($_POST["DeleteName"]);
-    }
+	if(!empty($_POST["ApproveName"])){
+	    approveListing($_POST["ApproveName"]);
+	}
 ?>
 
 <div class="w3-container">
-    <?php
-    getListingsAdmin();
-    ?>
-    <div class="w3-quarter">
+	<div class="w3-quarter">
         <div class="w3-twothird">
             <div class="w3-container w3-light-grey w3-justify">
                 <h3>Remove Listing </h3>
                 <form action="AlumniOffice.php" method = "post">
-                Name: <input type="text" name="DeleteName" value=""><br><br>
-                <input type="submit" value="Filter">
+                Name <input type="text" name="DeleteName" value=""><br><br>
+                <input type="submit" value="Delete">
                 </form>
             </div>
+			<br>
+			<div class="w3-container w3-light-grey w3-justify">
+				<h3>Approve Listing </h3>
+				<form action="AlumniOffice.php" method = "post">
+				Name <input type="text" name="ApproveName" value=""><br><br>
+
+				<input type="submit" value="Approve">
+				</form>
+			</div>
         </div>
     </div>
+    <?php
+    getListingsAdmin();
+    ?>
+    
+	<br>
 </div>
+
 <br>
 <p>
 <br>

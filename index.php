@@ -6,7 +6,7 @@
 <TITLE>SCU Businesses</TITLE>
 <style>
 h1{
-	font-family: 'Prata', serif;
+	font-family: "Times New Roman", Times, serif;
 	color: #FFFFFF;
 	background-color: #72001B;
 }
@@ -74,6 +74,7 @@ used this to set up the javascript function to send the password value to go to 
 	<h1 ALIGN=CENTER>SCU Alumni Businesses
 	</h1>
 </div>
+
 
 <div class="w3-container">
     <div class="w3-quarter">
