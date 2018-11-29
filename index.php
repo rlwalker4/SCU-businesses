@@ -57,10 +57,8 @@ used this to set up the javascript function to send the password value to go to 
 -->
         <script>
             function checkPassword(){
-                <?php
-                    var accepted = checkAlumniLogin(document.getElementById('password').value)
-                ?>
-                if(accepted){
+               
+                if(document.getElementById('password').value == 'hello'){
                     alert('Correct Password!');
                     location.href="AlumniOffice.php";
                     return false;
@@ -68,7 +66,7 @@ used this to set up the javascript function to send the password value to go to 
                     alert('Wrong Password!');
                     return false;
                 }
-               
+        
             }
     </script>
     </div>
