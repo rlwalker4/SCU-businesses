@@ -78,7 +78,7 @@ h5{
             <div class="w3-container">
                 <form method="POST" class="form1" onsubmit="return checkPassword();">
                     <br>
-                    Password: <input type="password" id="password">
+                    Password: <input type="password" name ="alumniPassword" id="password">
                     <input  class"buttons" type="submit" value="Submit" >
                 </form>
             </div>
@@ -96,8 +96,8 @@ used this to set up the javascript function to send the password value to go to 
 -->
         <script>
             function checkPassword(){
-               
-                if(document.getElementById('password').value == 'hello'){
+                var checkPass = <?php echo checkAlumniLogin($_POST["alumniPassword"])>
+                if(checkPass){
                     alert('Correct Password!');
                     sessionStorage.setItem("correctPassword",true);
                     location.href="AlumniOffice.php";
