@@ -76,7 +76,7 @@ function getListingsAdmin()
         	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
     	}
     	print "<table class='w3-twothird w3-table-all w3-card-2'>\n";
-    	print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>HASH</th><th>IsApproved</th>";
+    	print "<tr>\n<th>Name</th><th>Location</th><th>Business Type</th><th>Information</th><th>Approved?</th><th>Edited?</th><th>Owner</th><th>Graduation Year</th><th>Degree</th>";
     	$i =0;
 
     	while($row=oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
@@ -117,7 +117,7 @@ function editListing($name){
 	oci_close($conn);
 }
 
-function removeListing($name{
+function removeListing($name){
 	
 	$conn = connect();
 	$str = "DELETE FROM listing WHERE BusinessName='${name}'";

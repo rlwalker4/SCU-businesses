@@ -26,11 +26,16 @@ h5{
 		if($var != "")
 			$i++;
 	}
-	if(!empty($_POST("NameViewer"] and !empty($_POST("ContactInfo"]){
+	if(!empty($_POST["NameViewer"]) and !empty($_POST["ContactInfo"])){
 		addUser($_POST["NameViewer"], $_POST["ContactInfo"]);
 	}
-	if($i == 7){
-		addListing($_POST["Name"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
+	if(!empty($_POST["LocationA"]) and !empty($_POST["TypeA"]) and !empty($_POST["Info"]) and !empty($_POST["Username"]) and !empty($_POST["GradYear"]) and !empty($_POST["Degree"])){
+		if(!empty($_POST["NameAdd"])){
+			addListing($_POST["NameAdd"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["Username"], $_POST["GradYear"], $_POST["Degree"], 0);
+		}
+		else if(!empty($_POST["NameEdit"])){
+			addListing($_POST["NameEdit"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["Username"], $_POST["GradYear"], $_POST["Degree"], 1);
+		}
 	}
 ?>
 <body onload= "PopCheck()" >
@@ -130,7 +135,7 @@ used this to set up the javascript function to send the password value to go to 
             <div class="w3-container w3-light-grey w3-justify">
                 <h3>Add New Business</h3>
                     <form action="index.php" method = "post">
-                    Name<br> <input type="text" name="Name" value=""><br>
+                    Name<br> <input type="text" name="NameAdd" value=""><br>
                     Location<br><input type="text" name="LocationA" value=""><br>
                     Business Type<br><input type="text" name="TypeA" value=""><br>
                     Description<br>
@@ -146,7 +151,7 @@ used this to set up the javascript function to send the password value to go to 
 			<div class="w3-container w3-light-grey w3-justify">
                 <h3>Edit Business Listing</h3>
                     <form action="index.php" method = "post">
-                    Name<br> <input type="text" name="Name" value=""><br>
+                    Name<br> <input type="text" name="NameEdit" value=""><br>
                     Location<br><input type="text" name="LocationA" value=""><br>
                     Business Type<br><input type="text" name="TypeA" value=""><br>
                     Description<br>
@@ -166,7 +171,7 @@ used this to set up the javascript function to send the password value to go to 
 			if($var != "")
 				$i++;
 		}
-		if($i == 2)
+		if($i == 2 and empty($_POST["NameViewer"]))
 			getListings($_POST["LocationF"], $_POST["TypeF"]);
 		else if($i == 1 && $key == "TypeF" && $_POST["TypeF"] != "")
 			getListings("", $_POST["TypeF"]);
