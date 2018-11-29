@@ -33,7 +33,7 @@ h5{
 <script>
     function PopCheck(){
         if(sessionStorage.getItem("correctPassword") != true){
-            document.getElementById('id02').style.display='block'
+            document.getElementById('id03').style.display='block'
         
         }
     }
