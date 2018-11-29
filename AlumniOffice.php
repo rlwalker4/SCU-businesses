@@ -29,9 +29,9 @@ h5{
     </div>
 </div>
 
-<body onload= "PopCheck()" >
+<body onload= "SecurityCheck()" >
 <script>
-    function PopCheck(){
+    function SecurityCheck(){
         if(sessionStorage.getItem("correctPassword") != true){
             document.getElementById('id03').style.display='block'
         
