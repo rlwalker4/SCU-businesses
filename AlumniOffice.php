@@ -35,6 +35,9 @@ h5{
 	if(!empty($_POST["ApproveName"])){
 	    approveListing($_POST["ApproveName"]);
 	}
+	if(!empty($_POST["EditHash"])){
+		editListing($_POST["EditHash"]);
+	}
 ?>
 
 <div class="w3-container">

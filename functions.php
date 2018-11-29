@@ -98,14 +98,21 @@ function getListingsAdmin()
 
 function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree){
 	$conn = connect();
-	$hashstr = $grad_year . $user_name . $degree;
-	$hashstr = hash('sha256', $hashstr);
-	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0)";
+	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0, 0, '${user_name}', '${grad_year}', '${degree}')";
 	$stid = executeCommand($stid, $conn);
 	
 	$str = "COMMIT";
 	$stid = executeCommand($stid, $conn);
 
+	oci_free_statement($stid);
+	oci_close($conn);
+}
+
+function editListing($hash){
+	
+	$conn = connect();
+	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessHash='${hash}'";
+	$stid = executeCommand($str, $conn);
 	oci_free_statement($stid);
 	oci_close($conn);
 }
