@@ -30,7 +30,35 @@ h5{
 		addListing($_POST["Name"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
 	}
 ?>
+<body onload= "PopCheck()" >
 
+    <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-flat-pomegranate">
+    <span onclick="document.getElementById('id02').style.display='none'"
+    class="w3-button w3-display-topright">&times;</span>
+    <h2>Enter Alumni Info</h2>
+    </header>
+    <div class="w3-container">
+        <form action="index.php" method = "post">
+        Name<br> <input type="text" name="NameViewer" value=""><br>
+        Contact Info<br><input type="text" name="ContactInfo" value=""><br>
+
+        <input type="submit" value="Submit">
+        </form>
+
+    </div>
+    </div>
+</div>
+            <script>
+                 function PopCheck(){
+                     if(localStorage.getItem("firstPopUp") == null){
+                         document.getElementById('id02').style.display='block'
+                         localStorage.setItem("firstPopUp", true);
+                     }
+                 }
+            </script>
+                 
 <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Alumni Office Login</button>
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -48,6 +76,9 @@ h5{
             </div>
         </div>
     </div>
+
+
+
 
 
 
@@ -143,6 +174,8 @@ used this to set up the javascript function to send the password value to go to 
 		
 		//getListings(1);
 	?>
+
+
 </div>
 
 
