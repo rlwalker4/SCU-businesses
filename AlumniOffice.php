@@ -43,16 +43,23 @@ h5{
             <div class="w3-container w3-light-grey w3-justify">
                 <h3>Remove Listing </h3>
                 <form action="AlumniOffice.php" method = "post">
-                Name <input type="text" name="DeleteName" value=""><br><br>
-                <input type="submit" value="Delete">
+                HASH <input type="text" name="DeleteName" value=""><br><br>
+                <input type="submit" value="Remove">
                 </form>
             </div>
 			<br>
 			<div class="w3-container w3-light-grey w3-justify">
 				<h3>Approve Listing </h3>
 				<form action="AlumniOffice.php" method = "post">
-				Name <input type="text" name="ApproveName" value=""><br><br>
-
+				HASH <input type="text" name="ApproveName" value=""><br><br>
+				<input type="submit" value="Approve">
+				</form>
+			</div>
+			<br>
+			<div class="w3-container w3-light-grey w3-justify">
+				<h3>Approve Edit Request</h3>
+				<form action="AlumniOffice.php" method = "post">
+				HASH <input type="text" name="????????" value=""><br><br>
 				<input type="submit" value="Approve">
 				</form>
 			</div>
