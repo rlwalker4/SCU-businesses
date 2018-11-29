@@ -4,11 +4,24 @@
 <HTML>
 <HEAD>
 <TITLE>SCU Businesses Directory</TITLE>
+<style>
+h1{
+    font-family: 'Prata', serif;
+color: #FFFFFF;
+    background-color: #72001B;
+}
+h3{
+    color: #72001B;
+}
+h5{
+color: #72001B;
+}
+</style>
 </HEAD>
 
-<div class="w3-flat-pomegranate">
 <div Align =left> <a href="index.php" class="w3-button w3-black">Back to directory</a></div>
-<H1 ALIGN=CENTER>Registered Users</H1>
+<div class="w3-container">
+<h1 ALIGN=CENTER>Registered Users</h1>
 </div>
 
 <?php
