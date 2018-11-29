@@ -156,15 +156,13 @@ function approveListing($name){
 
 function checkAlumniLogin($pass){
 
-	$file = fopen("pw.txt", "r");
-	$str = fgets($file);
-	if(strcmp($str, $hash('sha256', $pass)) == 0){
-		fclose($file);
-		return true;
-	}else{
-		fclose($file);
-		return false;
-	}	
+	$conn = connect();
+	$hashstr = hash('sha256', $pass);
+	$str = "SELECT * FROM passwords WHERE password='${hashstr}'";
+	$stid = executeCommand($str, $conn)
+	echo $stid;
+	oci_free_statement($stid);
+	oci_close($conn);
 }
 
 function addUser($name, $contact){
@@ -200,4 +198,5 @@ function getUsers(){
     oci_free_statement($stid);
     oci_close($conn);
 }
+
 ?>
