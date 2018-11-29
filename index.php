@@ -26,6 +26,9 @@ h5{
 		if($var != "")
 			$i++;
 	}
+	if(!empty($_POST("NameViewer"] and !empty($_POST("ContactInfo"]){
+		addUser($_POST["NameViewer"], $_POST["ContactInfo"]);
+	}
 	if($i == 7){
 		addListing($_POST["Name"], $_POST["LocationA"], $_POST["TypeA"], $_POST["Info"], $_POST["GradYear"], $_POST["Username"], $_POST["Degree"]);
 	}

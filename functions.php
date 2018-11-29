@@ -96,9 +96,9 @@ function getListingsAdmin()
    	oci_close($conn);
 }
 
-function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree){
+function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree, $isEdit){
 	$conn = connect();
-	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', '${hashstr}', 0, 0, '${user_name}', '${grad_year}', '${degree}')";
+	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', 0, '${isEdit}', '${user_name}', '${grad_year}', '${degree}')";
 	$stid = executeCommand($str, $conn);
 	
 	$str = "COMMIT";
@@ -108,19 +108,19 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	oci_close($conn);
 }
 
-function editListing($hash){
+function editListing($name){
 	
 	$conn = connect();
-	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessHash='${hash}'";
+	$str = "UPDATE listings SET IsApproved=1 WHERE BusinessName='${name}'";
 	$stid = executeCommand($str, $conn);
 	oci_free_statement($stid);
 	oci_close($conn);
 }
 
-function removeListing($hash){
+function removeListing($name{
 	
 	$conn = connect();
-	$str = "DELETE FROM listing WHERE OwnerHash='${hash}'";
+	$str = "DELETE FROM listing WHERE BusinessName='${name}'";
 	$stid = executeCommand($stid, $conn);
 	oci_free_statement($stid);
 	oci_close($conn);
@@ -130,7 +130,7 @@ function removeListing($hash){
 function removeListingAdmin($name){
 	
 	$conn = connect();
-	$str = "DELETE FROM listings WHERE Businessname='${name}'";
+	$str = "DELETE FROM listings WHERE BusinessName='${name}'";
 	$stid = executeCommand($str, $conn);
 	oci_free_statement($stid);
 	oci_close($conn);
