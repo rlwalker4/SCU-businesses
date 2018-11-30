@@ -171,7 +171,9 @@ used this to set up the javascript function to send the password value to go to 
 			if($var != "")
 				$i++;
 		}
-		if($i == 2 and empty($_POST["NameViewer"]))
+		if (!empty($_POST["alumniPassword"]))
+			getListings("", "");
+		else if($i == 2)
 			getListings($_POST["LocationF"], $_POST["TypeF"]);
 		else if($i == 1 && $key == "TypeF" && $_POST["TypeF"] != "")
 			getListings("", $_POST["TypeF"]);
@@ -180,7 +182,6 @@ used this to set up the javascript function to send the password value to go to 
 		else
 			getListings("", "");
 		
-		//getListings(1);
 	?>
 
 
