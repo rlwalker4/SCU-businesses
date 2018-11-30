@@ -1,3 +1,11 @@
+<!--
+This file provides functions to access a Oracle database storing
+information about business listings and the site's visitors.
+It provides functions to update, modify, view, and filter results
+from SQL commands to the server. Additionally, it returns formatted
+tables in cases where the data returned is dynamic.
+-->
+
 <link rel="stylesheet" href="https://index.phpwww.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 <?php
@@ -18,9 +26,9 @@ if($conn) {
 }
 
 //Executes an SQL command
-//Inputs	$command	the SQL command to be executed, in string form
+//@params	$command	the SQL command to be executed, in string form
 //			$conn		the connection to the database to be accessed
-//Outputs	$stid		the data returned from the database
+//@Returns	$stid		the data returned from the database
 function executeCommand($command, $conn)
 {
 	$stid = oci_parse($conn, $command);
@@ -36,6 +44,9 @@ function executeCommand($command, $conn)
 	return $stid; 
 }
 
+//Gets a filtered set of business listings from the database. Prints a formatted table with the results.
+//@Params		$filterLocation 	The desired location to filter by
+//				$filterType			The desired business type to filter by
 function getListings($filterLocation, $filterType)
 {
 	$conn = connect();
@@ -67,6 +78,7 @@ function getListings($filterLocation, $filterType)
 	oci_close($conn);
 }
 
+//Gets the full contents of the listings table. Prints a formatted table with the results.
 function getListingsAdmin()
 {
 	$conn = connect();
@@ -102,6 +114,15 @@ function getListingsAdmin()
    	oci_close($conn);
 }
 
+//Adds a listing to the database. 
+//@Params	$name		Business Name
+//			$location	Business Location
+//			$type		Business Type
+//			$info		Business Info
+//			$grad_year	Owner Graduation Year
+//			$user_name	Owner Name
+//			$degree		Owner Degree
+//			$isEdit		Is this an edited listing?
 function addListing($name, $location, $type, $info, $grad_year, $user_name, $degree, $isEdit){
 	$conn = connect();
 	$str = "INSERT INTO listings VALUES ('${name}', '${location}', '${type}', '${info}', 0, '${isEdit}', '${user_name}', '${grad_year}', '${degree}')";
@@ -114,6 +135,8 @@ function addListing($name, $location, $type, $info, $grad_year, $user_name, $deg
 	oci_close($conn);
 }
 
+//Confirms an edited listing.
+//@Params	$name		Business Name
 function editListing($name){
 	
 	$conn = connect();
@@ -132,6 +155,8 @@ function editListing($name){
 	oci_close($conn);
 }
 
+//Removes a listing.
+//@Params	$name		Business Name
 function removeListing($name){
 	
 	$conn = connect();
@@ -142,6 +167,8 @@ function removeListing($name){
 
 }
 
+//Confirms an edited listing.
+//@Params	$name		Business Name
 function removeListingAdmin($name){
 	
 	$conn = connect();
@@ -152,6 +179,8 @@ function removeListingAdmin($name){
 	
 }
 
+//Approves a listing.
+//@Params	$name		Business Name
 function approveListing($name){
 	
 	$conn = connect();
@@ -161,11 +190,16 @@ function approveListing($name){
 	oci_close($conn);
 }
 
+//Checks to see of a password is correct.
+//@Param	$pass	The inputted password.
 function checkAlumniLogin($pass){
 
 	return strcmp($pass, "hello");
 }
 
+//Adds a user's contact information to the database.
+//@Params	$name		User Name
+//			$contact	Contact Information
 function addUser($name, $contact){
 		
 	$conn = connect();
@@ -179,6 +213,7 @@ function addUser($name, $contact){
 	oci_close($conn);
 }
 
+//Displays a list of all users who have given their contact information.
 function getUsers(){
 
     $conn = connect();
