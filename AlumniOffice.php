@@ -22,8 +22,7 @@ h5{
 <div id="id03" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
         <header class="w3-container w3-flat-pomegranate">
-        <span onclick="document.getElementById('id03').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
+        <spanclass="w3-button w3-display-topright">&times;</span>
         <h2>Access Denied</h2>
         </header>
     </div>
@@ -33,7 +32,7 @@ h5{
 <script>
     function SecurityCheck(){
         if(sessionStorage.getItem("correctPassword") != true){
-            document.getElementById('id03').style.display='block'
+            location.href="Denied.php";
         
         }
     }
