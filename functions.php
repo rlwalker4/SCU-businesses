@@ -4,7 +4,7 @@
 
 //connect()
 //Establishes a connection between the page and the database.
-
+//Returns a $conn variable used to access connection.
 function connect(){
 $conn = oci_connect('PPAULSON', 'coen174oracle', '//dbserver.engr.scu.edu/db11g');
 if($conn) {
@@ -17,6 +17,10 @@ if($conn) {
 	}
 }
 
+//Executes an SQL command
+//Inputs	$command	the SQL command to be executed, in string form
+//			$conn		the connection to the database to be accessed
+//Outputs	$stid		the data returned from the database
 function executeCommand($command, $conn)
 {
 	$stid = oci_parse($conn, $command);
