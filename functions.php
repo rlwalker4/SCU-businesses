@@ -1,8 +1,11 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://index.phpwww.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 <?php
-function connect()
-{
+
+//connect()
+//Establishes a connection between the page and the database.
+
+function connect(){
 $conn = oci_connect('PPAULSON', 'coen174oracle', '//dbserver.engr.scu.edu/db11g');
 if($conn) {
 	return $conn;
@@ -156,13 +159,7 @@ function approveListing($name){
 
 function checkAlumniLogin($pass){
 
-	$conn = connect();
-	$hashstr = hash('sha256', $pass);
-	$str = "SELECT * FROM passwords WHERE password='${hashstr}'";
-	$stid = executeCommand($str, $conn)
-	echo $stid;
-	oci_free_statement($stid);
-	oci_close($conn);
+	return strcmp($pass, "hello");
 }
 
 function addUser($name, $contact){
